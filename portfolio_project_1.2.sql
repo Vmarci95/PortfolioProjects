@@ -125,7 +125,7 @@ ORDER BY population_infected_pct DESC
 --highest dead count per population from covid
 --continents are in the list, and where continent column = NULL --> location=continent, WE DON'T WANT THIS
 
-SELECT location, MAX(total_deaths) AS total_death_count
+SELECT location, SUM(total_deaths) AS total_death_count
 FROM covid_deaths
 WHERE continent IS NOT NULL
 GROUP BY location
